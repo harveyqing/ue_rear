@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-responsive.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/colorpicker.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/datepicker.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/uniform.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/select2.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-style.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-media.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-wysihtml5.css') }}" />
+{% endblock %}
+
+{% block main %}
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> 
+      <a href="{{ url_for("front.home") }}" title="Go Home" class="tip-bottom">
+        <i class="icon-home"></i> Home
+      </a>
+      <a href="{{ url_for("user.user_admin") }}">用户管理 </a>
+      <a href="#" class="current">用户认证审核</a> 
+    </div>
+    <h1>
+      用户认证审核 (共有 {{ workcount }} 个未完成项) 
+      <a class="btn btn-primary btn-large" style="margin-left: 20px;" href="{{ url_for("user.user_verify") }}?uid={{ userinfo[0][0] }}">开始审核</a>
+    </h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>待认证用户列表</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>帐户名</th>
+                  <th>职业 / 行业</th>
+                  <th>申请认证类别</th>
+                  <th>性别 / 性质</th>
+                  <th>查看信息</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for user in userinfo %}
+                  <tr class="gradeX">
+                    <td class="center">
+                      <center><a href="{{ url_for('user.user_verify') }}?uid={{ user[0] }}">{{ user[1].decode('utf8') }}</a></center>
+                    </td>
+                    <td class="center">
+                      <center>{% if user[2] %}{{ user[2].decode('utf8') }}{% else %}-{% endif %}</center>
+                    </td>
+                    <td class="center">
+                      <center>{% if user[3] %}{{ verify[user[3]] }}{% else %}-{% endif %}</center>
+                    </td>
+                    <td class="center">
+                      <center>{% if user[4] %}{{ sex[user[4]] }}{% else %}-{% endif %}</center>
+                    </td>
+                    <td class="center">
+                      <center>
+                        <a href="{{ url_for('user.user_view') }}?uid={{ user[0] }}" class="btn btn-info btn-mini">查看</a>
+                      </center>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ static_url('js/jquery.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.ui.custom.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.uniform.js') }}"></script> 
+<script src="{{ static_url('js/select2.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.dataTables.min.js') }}"></script> 
+<script src="{{ static_url('js/matrix.js') }}"></script> 
+<script src="{{ static_url('js/matrix.tables.js') }}"></script>
+<script>
+  $('.textarea_editor').wysihtml5();
+</script>
+{% endblock %}

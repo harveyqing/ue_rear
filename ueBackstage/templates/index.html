@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-responsive.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/fullcalendar.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-style.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-media.css') }}" />
+<link rel="stylesheet" href="{{ static_url('font-awesome/css/font-awesome.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/jquery.gritter.css') }}" />
+{% endblock %}
+
+{% block main %}
+<!--main-container-part-->
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> 
+      <a href="{{ url_for('front.home') }}" title="Go Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+    </div>
+  </div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
+  <div class="container-fluid">
+    <div class="quick-actions_homepage">
+      <ul class="quick-actions">
+        <li class="bg_lb"> <a href="index.html"> <i class="icon-book"></i> <span class="label label-important">20</span>我的待办事项</a> </li>
+        {% if 4 in roles %}
+          <li class="bg_lo span3"> <a href="charts.html"> <i class="icon-th-list"></i><span class="label label-important">4645</span>作品审核</a> </li>
+        {% endif %}
+        {% if 2 in roles %}
+        <li class="bg_ly"> <a href="user-ver.html"> <i class="icon-user"></i><span class="label label-important">101</span>用户管理</a> </li>
+        {% endif %}
+        <li class="bg_lo"> <a href="tables.html"> <i class="icon-th"></i>广告位管理</a> </li>
+        <li class="bg_lb"> <a href="interface.html"> <i class="icon-circle-arrow-right"></i>新专辑内容</a></li>
+        {% if 3 in roles %}
+        <li class="bg_lg span3"> <a href="form-common.html"> <i class="icon-signal"></i>内容管理</a> </li>
+        {% endif %}
+        <li class="bg_ls"> <a href="buttons.html"> <i class="icon-envelope-alt"></i>发送系统消息</a> </li>
+        <li class="bg_lb"> <a href="grid.html"> <i class="icon-tint"></i>团队成员</a> </li>
+        <li class="bg_lg"> <a href="calendar.html"> <i class="icon-calendar"></i>工作日志</a> </li>
+        <li class="bg_lr"> <a href="error404.html"> <i class="icon-info-sign"></i><span class="label label-success">4</span>举报信息</a> </li>
+
+      </ul>
+    </div>
+<!--End-Action boxes-->    
+
+
+    <hr/>
+    <div class="row-fluid">
+	  <div class="span6">
+    {% if 3 in roles %}        
+		<div class="widget-box">
+      <div class="widget-title"> <span class="icon"><i class="icon-ok"></i></span>
+        <h5>待审核用户认证</h5>
+      </div>
+      <div class="widget-content">
+        <div class="todo">
+          <ul>
+            <li class="clearfix">
+              <div class="txt">文创人 <span class="date badge badge-info">13</span> </div>
+              <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+            </li>
+				    <li class="clearfix">
+              <div class="txt">媒体人 <span class="date badge badge-info">13</span> </div>
+              <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+            </li>
+				    <li class="clearfix">
+              <div class="txt">专业机构 <span class="date badge badge-info">13</span> </div>
+              <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if 4 in roles %}
+		<div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-ok"></i></span>
+            <h5>待审核内容</h5>
+          </div>
+          <div class="widget-content">
+            <div class="todo">
+              <ul>
+			    <li class="clearfix">
+                  <div class="txt">赛事活动 <span class="date badge badge-important">1</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt">图片作品 <span class="date badge badge-warning">157</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt">工作日程 <span class="date badge badge-info">13</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt">获奖荣誉 <span class="date badge badge-info">13</span>  </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt">视频作品 <span class="date badge badge-warning">157</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt">工作日程记录 <span class="date badge badge-info">13</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt">工作日程记录 <span class="date badge badge-info">13</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+				<li class="clearfix">
+                  <div class="txt">工作日程记录 <span class="date badge badge-info">13</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+				<li class="clearfix">
+                  <div class="txt">工作日程记录 <span class="date badge badge-info">13</span> </div>
+                  <div class="pull-right"> <a class="tip" href="#"><i class="icon-circle-arrow-right"></i></a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+	  <div class="span6">
+	    <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-umbrella"></i></span>
+            <h5>团队公告</h5>
+          </div>
+          <div class="widget-content">
+            <div class="todo">
+              <ul>
+                <li class="clearfix">
+                  <div class="txt">不要点击前端页面任何一个百度、谷歌提供的广告</div>
+                 
+                </li>
+                <li class="clearfix">
+                  <div class="txt">日常交流事项在QQ群和邮件中完成</div>
+                </li>
+                <li class="clearfix">
+                  <div class="txt">离开时请登出管理账号<span class="date badge badge-important">Important</span> </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-main-container-part-->
+{% endblock %}
+
+{% block js %}
+<script src="{{ static_url('js/jquery.min.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap.min.js') }}"></script> 
+<script src="{{ static_url('js/matrix.js') }}"></script> 
+<script src="{{ static_url('js/matrix.dashboard.js') }}"></script> 
+{% endblock %}

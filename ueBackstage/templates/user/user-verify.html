@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-responsive.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/colorpicker.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/datepicker.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/uniform.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/select2.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-style.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-media.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-wysihtml5.css') }}" />
+{% endblock %}
+
+{% block main %}
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> 
+      <a href="href={{ url_for('front.home') }}" title="Go Home" class="tip-bottom">
+        <i class="icon-home"></i> 
+        Home
+      </a> 
+      <a href="{{ url_for('user.user_verify_admin') }}" class="tip-bottom">用户认证审核</a>
+      <a href="#" class="current">认证审核</a> 
+    </div>
+    <h1>
+      <a href="{{ url_for('user.user_view') }}?uid={{ userinfo[0] }}" >
+        正在认证{{ userinfo[1].decode('gbk') }}
+      </a>
+    </h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div>
+        <div class="widget-box">
+          <div class="widget-title"> 
+            <span class="icon"> <i class="icon-align-justify"></i> </span>
+            <h5>用户认证审核</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <form action="" method="post" class="form-horizontal">
+              <div class="control-group">
+                <label class="control-label">真实姓名:</label>
+                <div class="controls">
+                  <p>
+                    {{ userinfo[1].decode('gbk') }}
+                  </p>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">申请认证文字:</label>
+                <div class="controls">
+                  <p>
+                    {% if userinfo[2] %}{{ userinfo[2].decode('gbk') }}{% endif %}
+                  </p>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">微博验证:</label>
+                <div class="controls">
+                  <p>
+                    <a href="http://weibo.com/{% if userinfo[3] %} {{ userinfo[3].split('&')[0] }} {% endif %}" target="_blank">
+                      访问Ta的新浪微博
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">确认真实姓名:</label>
+                <div class="controls">
+                  <input type="text" name="realname" class="span11" value=" {{ userinfo[1].decode('gbk') }}" />
+                  <span class="help-block">请确认真实姓名与微博官方认证是否一致。</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">输入认证文字:</label>
+                <div class="controls">
+                  <textarea name="vertext" class="span11"  value="{% if userinfo[2] %}{{ userinfo[2].decode('gbk') }}{% endif %}"></textarea>
+                  <span class="help-block"> 
+                    若与官方微博认证文字不一致请参考用户所填写认证文字酌情修改。
+                  </span>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">选择认证分类</label>
+                <div class="controls">
+                  <label>
+                    <input type="radio" name="radios" checked="checked" value="1"/>文创人
+                  </label>
+                  <label>
+                    <input type="radio" name="radios" {% if userinfo[4] == '2' %}checked="checked"{% endif %} value="2"/>媒体人
+                  </label>
+                  <label>
+                    <input type="radio" name="radios" {% if userinfo[3] == '3' %}checked="checked"{% endif %} value="3"/>专业机构
+                  </label>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" name="action"class="btn btn-success" value="accept">
+                  接受
+                </button>
+                <a href="{{ url_for('user.user_verify_admin') }}" class="btn btn-danger">
+                  拒绝
+                </a>
+                <a href="{{ url_for('user.user_verify_admin') }}" class="btn btn-warning" style="float: right;">审核下一组</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ static_url('js/jquery.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.ui.custom.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.uniform.js') }}"></script> 
+<script src="{{ static_url('js/select2.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.dataTables.min.js') }}"></script> 
+<script src="{{ static_url('js/matrix.js') }}"></script> 
+<script src="{{ static_url('js/matrix.tables.js') }}"></script>
+<script>
+  $('.textarea_editor').wysihtml5();
+</script>
+{% endblock %}

@@ -1,0 +1,153 @@
+ul, ol, li, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset, .pr, .pc { margin: 0; padding: 0; }
+	ul li { list-style: none; }
+	
+/*
+	Level:			Global
+	Explain:		body宽度
+	Last Modify:	Alex
+*/
+	.wp { width: 100%;}
+	.wp1040 { margin: 0 auto; width: 1040px;}
+	.wp1000 { margin: 0 auto; width: 1000px;}
+	.w800 { width: 800px;}
+	.w200 { width: 200px;}
+	.w490 { width: 490px;}
+	.w640 { width: 640px;}
+	.w336 { width: 336px;}
+
+/*
+	Level:			Global
+	Explain:		浮动
+	Sample:			class="z/y"
+	Last Modify:	Alex
+*/
+	.z { float: left;}
+	.y { float: right;}
+	
+/*
+	Level:			Global
+	Explain:		清除浮动
+	Sample:			class="cl"
+	Last Modify:	Alex
+*/
+	.cl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } 
+	.cl { zoom: 1;}
+	
+/*
+	Level:			Global
+	Explain:		顶部边距
+	Last Modify:	Alex
+*/
+	.mgt10 { margin-top: 10px;}
+	.mgt20 { margin-top: 20px;}
+	.mgt40 { margin-top: 40px;}
+	.mgt60 { margin-top: 60px;}
+	.mgt100{ margin-top: 100px;}
+
+
+/*
+	Level:			Global
+	Explain:		߿ԲǶ
+	Last Modify:	Alex 
+*/
+
+	.br5 { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+	.br10 {  -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+	.br5bt { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px;}
+	.br10bt { -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomright: 10px; -webkit-border-bottom-right-radius: 10px;}
+	.br5tp { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px;}
+	
+/*
+	Level:			Global
+	Explain:		ӰӢͱ߿
+	Last Modify:	Alex 
+*/
+	.en { font-family: 'Open Sans', Arial, sans-serif; font-style: italic; font-weight: bold; text-shadow: 1px 1px 1px rgba(242, 242, 242, 0.8);}
+	.en1 { font-family: 'Open Sans', Arial, sans-serif; font-style: italic; font-weight: bold; text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.8);}
+	.bs { -webkit-box-shadow: 0px 0px 5px #CCC; -moz-box-shadow: 0px 0px 5px #CCC;}
+	.bsy { -webkit-box-shadow: 0px 2px 4px #999; -moz-box-shadow: 0px 2px 4px #999;}
+	.chs { text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);}
+	.chs1 { text-shadow: -1px -1px 1px rgba(51, 51, 51, 0.8);}
+
+
+			
+/*--------------------------内容页---------------------------*/
+
+/*--------------------------作品内容页---------------------------*/
+
+	.yz-idx-showct{ padding: 0 20px;}
+		.yz-idx-showct-name { height: 50px; line-height: 50px; font-size: 18px; margin-top: 4px; color: #76ACCC;}
+			a.yz-idx-showct-name:hover { color: #333;}		
+		.yz-idx-showct-title { height: 50px; line-height: 50px; font-size: 18px; margin-top: 4px; color: #333;}
+		.showct-ctbody { background: #FFF; position: relative; min-height: 402px; padding-bottom: 20px;}
+		.showct-ct-title { height: 50px; position: relative;}
+		.showct-ct-title-p { line-height: 50px; padding-left: 20px; color: #333; font-size: 18px; font-weight: bold; }
+		.showct-ct { width: 600px; overflow: hidden; margin-left: 20px; }
+		.showct-ct-tupian { padding: 20px 0; border-bottom: 1px dashed #999;}
+			.showct-ct-tupian a { display: block; width: 600px;  margin-bottom: 20px; text-align: center;}
+			.showct-ct-tupianimg { max-width: 600px;}
+		.showct-ct-shipin { padding: 20px 0; width: 600px; overflow: hidden;}
+		.showct-ct-direction { font-size: 14px; color: #666; width: 600px; line-height: 30px;}
+		.showct-ct-surpot { width: 640px; height: 160px;}
+			.showct-ct-surpot-num { width: 300px; margin-left: 20px; line-height: 120px; text-align: center; font-size: 60px; color: #999;}
+			.showct-ct-surpot-icon-on { width: 120px; height: 120px; margin-right: 100px; background: url(../img/show-bodyico.png) -5px -1094px no-repeat; cursor: pointer;}
+				a.showct-ct-surpot-icon-on:hover { background: url(../img/show-bodyico.png) -127px -1094px no-repeat;}
+			.showct-ct-surpot-icon-off {  width: 120px; height: 120px; margin-right: 100px; background: url(../img/show-bodyico.png) -5px -1219px no-repeat;}
+
+/*--------------------------事件内容页---------------------------*/
+	.eventct-ct-info { width: 600px; margin-left: 20px; overflow: hidden; font-size: 14px; }
+	.eventct-ct-time { line-height: 30px; height: 30px; width: 560px; padding-left: 30px; background: url(../img/show-bodyico.png) -125px -1362px no-repeat;}
+	.eventct-ct-add { line-height: 30px; width: 560px; padding-left: 30px; background: url(../img/show-bodyico.png) -125px -1393px no-repeat;}
+	.eventct-ct-email { line-height: 30px; width: 560px; padding-left: 30px; background: url(../img/show-bodyico.png) -37px -1898px no-repeat;}
+	.eventct-ct-img1,.eventct-ct-img2 { width: 600px; margin-left: 20px; overflow: hidden;}
+		.eventct-ct-img1 a { height: 150px; width: 150px; float: left; overflow: hidden; cursor: pointer; position: relative;}
+		.eventct-ct-img2 a { width: 600px; float: left; overflow: hidden; cursor: pointer; text-align: center; margin-bottom: 10px;}
+			.eventct-ct-img1 a:hover { opacity: 0.8; filter: alpha(opacity=80); }			
+			.eventct-ct-img1 img { position: relative;}
+			.eventct-ct-img2 img { max-width: 600px; float: left;}
+	.eventct-ct-description { width: 600px; margin-left: 20px; overflow: hidden;}
+		.eventct-ct-description p { line-height: 30px; font-size: 14px; color: #666;}
+	.eventct-ct-zhaopin { width: 600px; margin-left: 20px; overflow: hidden; padding-bottom: 20px; border-bottom: 1px dashed #999;}
+		.eventct-ct-zhaopin p { line-height: 30px; font-size: 14px; color: #666;}
+		.eventct-ct-zhiwei { width: 600px; height: 30px; padding: 10px 0;}
+		.eventct-ct-zhiwei h1 { float: left; line-height: 30px; color: #333; font-size: 16px; font-weight: bold;}
+			.eventct-zhiwei-focus { line-height: 28px; border: 1px solid #CCC; font-size: 14px; padding-left: 40px; padding-right: 10px; color: #666; cursor: pointer; background: url(../img/show-bodyico.png) -18px -609px no-repeat; margin-left: 10px; background-color: #E2E2E2;}
+			a.eventct-zhiwei-focus:hover {background: url(../img/show-bodyico.png) -18px -678px no-repeat; background-color: #5FB7E1; color: #FFF; }
+			.eventct-zhiwei-focuson { height: 30px; padding-left: 40px; width: 10px; background: url(../img/show-bodyico.png) -18px -646px no-repeat; margin-left: 10px;}
+
+	.yz-idx-body-title { height: 50px; background: #FFF;position: relative;}
+		.yz-idx-body-title-p { line-height: 50px; padding-left: 15px; color: #999; font-size: 24px; }
+
+/*
+	Level:			Channal
+	Explain:		内容页评论模块
+	Last Modify:	Alex
+*/
+	.yz-idx-module-discus { background: #FFF; padding-bottom: 40px;}
+	.yz-idx-module-discusbox { position: relative; height: 138px; width: 600px;  margin-left: 20px; }
+	.yz-idx-module-discus-ta { border: 1px solid #CCC;}
+		.yz-idx-module-discus-ta textarea { margin: 10px; padding: 0; border: 0px outset buttonface; width: 578px; height: 100px; color: #999; outline: 0 none; line-height: 20px; overflow: hidden; font-family: "Microsoft YaHei"; font-size: 14px; line-height: 20px; resize: none;}
+		.yz-idx-module-discus-ta:focus { border: 1px solid #76ACCC;}
+		.yz-idx-module-discus-wn { position: absolute; top: -25px; right: 5px; text-align: right; font-size: 14px; display: block; width: 455px; height: 20px; color: #999;}
+		.yz-idx-module-discus-sub { text-align: center;  width: 46px; line-height: 22px; height: 26px; background: url(../img/hp-bodyico.png) -23px -1337px no-repeat; outline: none; border: none; color:#FFF; font-family:"Microsoft YaHei";  }
+			.yz-idx-module-discus-sub:hover { background: url(../img/hp-bodyico.png) -80px -1337px no-repeat; cursor: pointer; color: #5FB7E1;}
+	.yz-idx-module-discus-ul { width: 600px; margin-left: 20px; border-top: 1px solid #CCC;}
+		.yz-idx-module-discus-li { width: 600px; padding: 25px 0; border-bottom: 1px dashed #E2E2E2; position: relative; }
+		.yz-idx-module-discus-cmtone-avt,.yz-idx-module-discus-cmtone-avt a { height: 50px; width: 50px; overflow: hidden;}
+		.yz-idx-module-discus-cmtone-ct { width: 520px; padding-right: 10px;}
+			.yz-idx-module-discus-cmtone-ct p { line-height: 25px;}
+		.yz-idx-module-discus-cmtone-name { width: 520px; text-align: left; line-height: 20px;}
+			.yz-idx-module-discus-cmtone-name a { font-size: 14px; color: #000;}
+			.yz-idx-module-discus-cmtone-name a:hover { text-decoration: underline;}
+			.yz-idx-module-discus-cmtone-name i { color: #CCC; font-size: 12px; margin-left: 10px; font-style: italic; }
+			.yz-idx-module-discus-cmtone-name span { color: #5FB7E1; display: block; height: 25px; line-height: 25px; padding: 0 10px; font-family:Arial, Helvetica, sans-serif;}
+			.yz-idx-module-discus-cmtone-ctmain { width: 520px; line-height: 30px; text-align: left; color: #999; font-size: 14px;}
+	.yz-idx-module-discus-more { width: 600px; border: 1px solid #CCC; border-top: none !important; margin-left: 19px; background: url(../img/pngbackground.png) repeat; height: 50px;  position: relative;}
+		.yz-idx-module-discus-more p { line-height: 50px; width: 600px; text-align: center; font-weight: bold; font-size: 18px; color: #333; cursor: pointer;}
+		.yz-idx-module-discus-more span { display: block; height: 34px; width: 34px; background: url(../img/show-bodyico.png) -200px -2090px no-repeat; position: absolute; right: 10px; top: 8px; cursor: pointer;}
+		a.yz-idx-module-discus-more:hover span { background: url(../img/show-bodyico.png) -152px -2090px no-repeat;}
+
+/*审核按钮*/
+.control-button { position: fixed; left: 900px; right: 20px; top: 178px; padding: 10px; background: #FFF;}
+
+.span13 { display: block; width: 640px !important;}

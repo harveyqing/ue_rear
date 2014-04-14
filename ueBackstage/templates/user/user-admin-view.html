@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-responsive.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/colorpicker.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/datepicker.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/uniform.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/select2.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-style.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-media.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-wysihtml5.css') }}" />
+<link rel="stylesheet" href="{{ static_url('font-awesome/css/font-awesome.css') }}" />
+{% endblock %}
+
+{% block main %}
+<div id="content">
+<div id="content-header">
+  <div id="breadcrumb"> 
+    <a href="{{ url_for('front.home') }}" title="Go Home" class="tip-bottom">
+      <i class="icon-home"></i> Home
+    </a> 
+    <a class="tip-bottom" href="{{ url_for('user.user_admin') }}">用户管理</a>
+    <a class="current">用户详细信息</a> 
+  </div>
+  <h1>
+    <a href="http://www.ueue.cc/{{ userinfo[1] }}" target="_blank">
+      {{ userinfo[0].decode('utf8') }}
+    </a>
+  </h1>
+</div>
+<div class="container-fluid">
+  <hr>
+  <div class="row-fluid">
+    <div>
+      <div class="widget-box">
+        <div class="widget-title"> 
+          <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>详细资料</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <form action="{{ url_for('user.user_lock') }}" method="get" class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label">账号名:</label>
+              <div class="controls">
+                <p>{{ userinfo[0].decode('utf8') }}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">数字ID:</label>
+              <div class="controls">
+                <p>{{ userinfo[1] }}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">姓名绰号:</label>
+              <div class="controls">
+                <p>{% if userinfo[2] %}{{ userinfo[2].decode('utf8') }}{% else %}-{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">所在地:</label>
+              <div class="controls">
+                <p>{% if userinfo[3] %}{{ userinfo[3].decode('utf8') }}{% else %}-{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">职业:</label>
+              <div class="controls">
+                <p>{% if userinfo[4] %}{{ userinfo[4].decode('utf8') }}{% else %}-{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">所属机构:</label>
+              <div class="controls">
+                <p>
+                  {% if userinfo[5] %}
+                    {{ userinfo[5].decode('utf8').split('&')[0] }}
+                  {% else %}
+                    -
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">生日:</label>
+              <div class="controls">
+                <p>{% if userinfo[6] %}{{ userinfo[6].split('&')[0] }}{% else %}-{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">身高:</label>
+              <div class="controls">
+                <p>{% if userinfo[7] %}{{ userinfo[7].split('&')[0] }}{% else %}-{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">体重:</label>
+              <div class="controls">
+                <p>{% if userinfo[8] %}{{ userinfo[8].split('&')[0] }}{% else %}-{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">个人介绍:</label>
+              <div class="controls">
+                <p>{% if userinfo[9] %}{{ userinfo[9].decode('utf8') }}{% else %}---{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">认证类别:</label>
+              <div class="controls">
+                <p>{% if userinfo[10]  %}{{ verify[userinfo[10]] }}{% endif %}</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">认证文字:</label>
+              <div class="controls">
+                <p>{% if userinfo[11] %}{{ userinfo[11].decode('utf8') }}{% else %}---{% endif %}</p>
+              </div>
+            </div>
+            <div class="form-actions">             
+              <button name="unlock" type="submit" class="btn btn-success" value="{{ userinfo[1] }}"  {% if not userinfo[12] == 1 %}disabled=""{% endif %}>开启账户</button>            
+              <button name="lock" type="submit" class="btn btn-danger" value="{{ userinfo[1] }}" {% if userinfo[12] == 1 %}disabled=""{% endif %}>
+                停止帐户</button>
+              {% if userinfo[12] < 5 and userinfo[12] != 1 %}            
+              <a href="{{ url_for('user.gen_invitation_code') }}?uid={{ userinfo[1] }}" class="btn btn-warning" style="float: right;">生成邀请码</a>
+              {% endif %}
+            </div>           
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div></div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ static_url('js/jquery.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.ui.custom.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap.min.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap-colorpicker.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap-datepicker.js') }}"></script> 
+<script src="{{ static_url('js/jquery.toggle.buttons.html') }}"></script> 
+<script src="{{ static_url('js/masked.js') }}"></script>  
+<script src="{{ static_url('js/select2.min.js') }}"></script> 
+<script src="{{ static_url('js/matrix.js') }}"></script>  
+<script src="{{ static_url('js/jquery.peity.min.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap-wysihtml5.js') }}"></script> 
+
+<script>
+  $('.textarea_editor').wysihtml5();
+</script>
+{% endblock %}
+

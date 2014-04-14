@@ -1,0 +1,6 @@
+<p>亲爱的 {{username}},</p>
+<p>您收到了这封邮件是因为您被邀请认证或您在UE坐标申请了认证。</p>
+<p>您的邀请码/认证码为: {{ verifycode }}</p>
+<p>请您尽早到<a href="http://www.ueue.cc">ue坐标</a>完成认证。</p>
+<p>祝您生活愉快！</p>
+<p><code>ue坐标</code></p>

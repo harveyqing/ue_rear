@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/bootstrap-responsive.min.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-style.css') }}" />
+<link rel="stylesheet" href="{{ static_url('css/matrix-media.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ static_url('css/common-style.css') }}">
+<link href="{{ static_url('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+{% endblock %} 
+
+<style>
+	body { font-family:Arial, Helvetica, sans-serif;}
+</style>
+
+{% block main %}
+<!--main-container-part-->
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> 
+      <a href="{{ url_for('front.home') }}" title="Go Home" class="tip-bottom">
+        <i class="icon-home"></i> Home
+      </a> 
+      <a href="works.html" class="current">内容审核</a> 
+    </div>
+    <h1>
+      {{ info['user'].decode('utf8') }} | {{ info['title'].decode('utf8') }}
+    </h1>
+  </div>
+  
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span13">
+	  <!--展示内容-->
+		<div class="w640 z cl showct-ctbody">
+     	  <div class="z cl showct-ct">
+          {% for c in info['content'] %}
+            {% if info['type'] == "0" %}
+			<div class="showct-ct-{{ info['class'] }} z cl">
+              <embed src="{{ c }}" allowfullscreen="true" quality="high" width="600" height="500" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"> 
+            </div>
+            {% endif %}
+            {% if info['type'] == "2" %}
+			<div class="showct-ct-{{ info['class'] }} z cl">
+              <a href="#">
+                <img src="{{ c }}" alt={{ info['title'] }} class="showct-ct-tupianimg">
+              </a>
+              <p class="z cl showct-ct-direction">
+              </p>
+            </div>                                                   
+            {% endif %}
+            {% if info['type'] == "1" %}
+            <div class="showct-ct-{{ info['class'] }} z cl">
+              <embed id="xiamplayer" class="xiamiflashplayer" width="400" height="50" src="{{ c }}" type="application/x-shockwave-flash" wmode="transparent">
+            </div>
+            {% endif %}
+          {% endfor %}    
+         </div>   
+         <div class="z cl showct-ct-direction mgt20">
+         {% if info['type'] == "3" %}
+           {{ info['content'][0].decode('utf8') }}
+         {% else %}
+           {{ info['description'].decode('utf8') }}
+         {% endif %}
+		 </div>
+
+	<!--TEST END-->
+				</div>
+			</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="control-button">
+  <a href="?id={{ info['id'] }}&action=accept" class="btn btn-success">接受</a>
+  <div class="btn-group">
+    <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle">拒绝<span class="caret"></span></button>
+       <ul class="dropdown-menu">
+          <li><a href="?id={{ info['id'] }}&action=violate">存在违规内容</a></li>
+          <!--这里引用一个inerface.html页面中的弹出框确认窗口 但是不知道怎么弄-->
+          <li><a href="?id={{ info['id'] }}&action=copyright">存在版权争议</a></li>
+          <li class="divider"></li>
+        </ul>
+    </div>
+	<a href="?id={{ info['id'] }}&action=suspect" class="btn btn-primary">质疑</a>
+    <button class="btn btn-info">推荐给编辑</button>
+    <p class="mgt10"><span class="icon-exclamation-sign"></span>&nbsp;不确定是否违规请选择质疑可以进入复审</p>
+	<hr>
+	<a href="{{ url_for('check.works') }}" class="btn btn-inverse">返回列表</a>
+	<button class="btn btn-warning">审核下一组</button>
+	<hr>
+	<p class="icon-ok">&nbsp;2013.9.23 韩旭 接受</p><br/>
+	<p class="icon-warning-sign">&nbsp;2013.9.23 韩旭 拒绝 理由"存在版权争议"</p><br/>
+	<p class="icon-list-ol">&nbsp;2013.9.23 韩旭 推送 频道页右侧展示 365days</p><br/>
+	<p class="icon-list-ol">&nbsp;2013.9.23 系统 推送结束 频道页右侧展示</p><br/>
+	<p class="icon-list-ol">&nbsp;2013.9.23 韩旭 推送结束 频道页右侧展示</p><br/>
+</div>
+<!--main-container-part-->
+{% endblock %}
+
+<!--Footer-part-->
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2013 &copy; UE TEAM | UEUE.CC <a href="http://www.ueue.cc">访问前端首页</a> </div>
+</div>
+
+{% block js %}
+<!--end-Footer-part-->
+<script src="{{ static_url('js/jquery.min.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap.min.js') }}"></script> 
+<script src="{{ static_url('js/jquery.ui.custom.js') }}"></script> 
+<script src="{{ static_url('js/matrix.js') }}"></script>
+<script src="{{ static_url('js/matrix.form_common.js') }}"></script>
+<script src="{{ static_url('js/wysihtml5-0.3.0.js') }}"></script> 
+<script src="{{ static_url('js/jquery.peity.min.js') }}"></script> 
+<script src="{{ static_url('js/bootstrap-wysihtml5.js') }}"></script>
+<script>
+{% endblock %}

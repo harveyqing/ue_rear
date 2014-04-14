@@ -1,0 +1,64 @@
+<!--sidebar-menu-->
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i>Home</a>
+  <ul>
+    <li class="submenu"><a href="{{ url_for('front.home') }}"><i class="icon icon-home"></i> <span>管理系统首页</span></a> </li>
+    <li class="submenu"><a href="#"><i class="icon icon-user"></i> <span>用户管理</span><span class="label label-important">{{ show_notification('user_verify') }}</span></a>
+	  <ul>
+        <li><a href="{{ url_for('user.user_admin') }}">用户管理</a></li>
+        <li><a href="{{ url_for('user.user_verify_admin') }}">待认证审核<span class="label label-success">{{ show_notification('user_verify') }}</span></a></li>
+      </ul>
+	</li>
+	<li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>内容审核</span> <span class="label label-important">{{ content_count(condition="WHERE w.status=0 AND w.check_status=4") }}</span></a>
+      <ul>
+        <li><a href="{{ url_for('check.works') }}">作品审核<span class="label label-success">{{ content_count(condition="WHERE w.status=0 AND w.check_status=4") }}</span></a></li>
+        <li><a href="content-examination.html">通告审核<span class="label label-success">5</span></a></li>
+      </ul>
+    </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-signal"></i> <span>内容管理</span></a>
+	  <ul>
+        <li><a href="content-examination-query.html">质疑项目<span class="label label-warning">4</span></a></li>
+        <li><a href="content-manage.html">作品展示</a></li>
+        <li><a href="content-manage.html">记录通告</a></li>
+      </ul>
+	</li>
+    <li class="submenu"><a href="#"><i class="icon icon-th"></i> <span>广告位管理</span></a>
+	  <ul>
+		<li><a href="ad-index.html">首页</a></li>
+        <li><a href="ad-work.html">作品展示频道</a></li>
+		<li><a href="ad-record.html">记录频道</a></li>
+		<li><a href="ad-user.html">机构人才频道</a></li>
+        <li><a href="ad-other.html">其他通用广告位</a></li>
+      </ul>
+	</li>
+    <li class="submenu"><a href="new-album.html"><i class="icon icon-circle-arrow-right"></i> <span>新专辑内容</span></a>
+	</li>
+    
+    <li class="submenu"><a href="#"><i class="icon icon-envelope-alt"></i> <span>发送系统消息</span></a>
+	  <ul>
+        <li><a href="system-massage.html">系统消息</a></li>
+        <li><a href="business-message.html">商业消息</a></li>
+		<li><a href="team-message.html">团队公告</a></li>
+      </ul>
+	</li>
+    <li class="submenu"><a href="#"><i class="icon icon-tint"></i> <span>团队成员权限管理</span></a>
+	  <ul>
+        <li><a href="new-admin.html">新增成员</a></li>
+        <li><a href="admin-manage.html">成员管理</a></li>
+      </ul>	
+	</li>
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>工作日志</span></a>
+      <ul>
+        <li><a href="my-work.html">我的工作</a></li>
+        <li><a href="team-work.html">团队成员</a></li>
+        <li><a href="all-work.html">全体成员</a></li>
+      </ul>
+    </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>举报信息接收</span> <span class="label label-important">4</span></a>
+	  <ul>
+        <li><a href="untreated-tip.html">未处理举报<span class="label label-important">4</span></a></li>
+        <li><a href="treated-tip.html">已处理举报</a></li>
+      </ul>		
+    </li>
+  </ul>
+</div>
+<!--sidebar-menu-->
